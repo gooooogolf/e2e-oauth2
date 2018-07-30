@@ -50,13 +50,15 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                 .secret(passwordEncoder().encode("secret"))
                 .authorizedGrantTypes("client_credentials")
                 .scopes("read", "write")
-                .autoApprove(true).and()
+                .autoApprove(true)
+                .redirectUris("https://www.google.co.th").and()
 
                 .withClient("clientIdPassword")
                 .secret(passwordEncoder().encode("secret"))
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token")
                 .scopes("read", "write").accessTokenValiditySeconds(3600)
-                .refreshTokenValiditySeconds(2592000).and()
+                .refreshTokenValiditySeconds(2592000)
+                .redirectUris("https://www.google.co.th").and()
 
                ;
     }
