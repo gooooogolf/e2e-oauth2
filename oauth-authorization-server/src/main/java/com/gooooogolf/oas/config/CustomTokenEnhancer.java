@@ -1,4 +1,4 @@
-package com.gooooogolf.auth;
+package com.gooooogolf.oas.config;
 
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -9,11 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomTokenEnhancer implements TokenEnhancer {
+
     @Override
-    public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
+    public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         final Map<String, Object> additionalInfo = new HashMap<>();
-        additionalInfo.put("organization", oAuth2Authentication.getName());
-        ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionalInfo);
-        return oAuth2AccessToken;
+        additionalInfo.put("organization", authentication.getName());
+        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
+        return accessToken;
     }
+
 }

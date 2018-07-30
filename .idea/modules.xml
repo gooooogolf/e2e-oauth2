@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/auth-server/auth-server.iml" filepath="$PROJECT_DIR$/auth-server/auth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/e2e-oauth2.iml" filepath="$PROJECT_DIR$/.idea/e2e-oauth2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" filepath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" />
     </modules>
   </component>
 </project>

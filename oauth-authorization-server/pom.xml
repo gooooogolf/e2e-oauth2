@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gooooogolf</groupId>
-	<artifactId>auth-server</artifactId>
+	<artifactId>oauth-authorization-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>auth-server</name>
-	<description>ETE OAS with LDAP</description>
+	<description>Oauth Authorization Server with spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -43,19 +43,6 @@
             <artifactId>spring-security-jwt</artifactId>
             <version>1.0.9.RELEASE</version>
         </dependency>
-        <dependency>
-			<groupId>org.springframework.ldap</groupId>
-			<artifactId>spring-ldap-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-ldap</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.unboundid</groupId>
-			<artifactId>unboundid-ldapsdk</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
