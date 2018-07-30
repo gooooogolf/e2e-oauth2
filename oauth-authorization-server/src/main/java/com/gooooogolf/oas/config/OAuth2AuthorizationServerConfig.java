@@ -33,31 +33,32 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("sampleClientId")
+                .withClient("implicitUnApprove")
                 .authorizedGrantTypes("implicit")
                 .scopes("read", "write")
                 .autoApprove(false)
                 .accessTokenValiditySeconds(3600)
-                .redirectUris("http://localhost:8083/").and()
+                .redirectUris("https://www.google.co.th").and()
 
-                .withClient("fooClientIdPassword")
-                .secret(passwordEncoder().encode("secret"))
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
+                .withClient("implicitApproved")
+                .authorizedGrantTypes("implicit")
                 .scopes("read", "write")
-                .accessTokenValiditySeconds(3600)
-                .refreshTokenValiditySeconds(2592000)
-                .redirectUris("xxx", "http://localhost:8089/").and()
+                .autoApprove(true)
+                .redirectUris("https://www.google.co.th").and()
 
-                .withClient("barClientIdPassword")
+                .withClient("clientCredentials")
+                .secret(passwordEncoder().encode("secret"))
+                .authorizedGrantTypes("client_credentials")
+                .scopes("read", "write")
+                .autoApprove(true).and()
+
+                .withClient("clientIdPassword")
                 .secret(passwordEncoder().encode("secret"))
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token")
                 .scopes("read", "write").accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(2592000).and()
 
-                .withClient("testImplicitClientId")
-                .authorizedGrantTypes("implicit")
-                .scopes("read", "write")
-                .autoApprove(true).redirectUris("xxx");
+               ;
     }
 
     @Override
